@@ -28,6 +28,13 @@ MongoClient.connect(
     }
 );
 
+app.get('/', (req, res) => {
+    res.send(`<h1>Backend</h1>`);
+    res.send(
+        `<p>Append the url with /collection/lessons to retrieve lessons from the database.</p>`
+    );
+});
+
 // Gets the name of the collection
 app.param('collectionName', (req, res, next, collectionName) => {
     req.collection = db.collection(collectionName);
